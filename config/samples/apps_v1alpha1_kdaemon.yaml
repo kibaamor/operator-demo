@@ -1,0 +1,6 @@
+apiVersion: apps.kibazen.cn/v1alpha1
+kind: KDaemon
+metadata:
+  name: kdaemon-sample
+spec:
+  image: nginx
