@@ -4,4 +4,3 @@ metadata:
   name: kdaemon-sample
 spec:
   # Add fields here
-  image: nginx

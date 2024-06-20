@@ -1,0 +1,58 @@
+
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: MutatingWebhookConfiguration
+metadata:
+  creationTimestamp: null
+  name: mutating-webhook-configuration
+webhooks:
+- admissionReviewVersions:
+  - v1
+  - v1beta1
+  clientConfig:
+    service:
+      name: webhook-service
+      namespace: system
+      path: /mutate-apps-kibazen-cn-v1alpha1-kdaemon
+  failurePolicy: Fail
+  name: mkdaemon.kb.io
+  rules:
+  - apiGroups:
+    - apps.kibazen.cn
+    apiVersions:
+    - v1alpha1
+    operations:
+    - CREATE
+    - UPDATE
+    resources:
+    - kdaemons
+  sideEffects: None
+
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingWebhookConfiguration
+metadata:
+  creationTimestamp: null
+  name: validating-webhook-configuration
+webhooks:
+- admissionReviewVersions:
+  - v1
+  - v1beta1
+  clientConfig:
+    service:
+      name: webhook-service
+      namespace: system
+      path: /validate-apps-kibazen-cn-v1alpha1-kdaemon
+  failurePolicy: Fail
+  name: vkdaemon.kb.io
+  rules:
+  - apiGroups:
+    - apps.kibazen.cn
+    apiVersions:
+    - v1alpha1
+    operations:
+    - CREATE
+    - UPDATE
+    resources:
+    - kdaemons
+  sideEffects: None
