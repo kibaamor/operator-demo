@@ -1,0 +1,6 @@
+domain: kibazen.cn
+layout:
+- go.kubebuilder.io/v3
+projectName: operator-demo
+repo: github.com/kibaamor/operator-demo
+version: "3"
