@@ -22,6 +22,9 @@ import (
 
 // KDaemonSpec defines the desired state of KDaemon
 type KDaemonSpec struct {
+	// INSERT ADDITIONAL SPEC FIELDS - desired state of cluster
+	// Important: Run "make" to regenerate code after modifying this file
+
 	// Pod image
 	Image string `json:"image,omitempty"`
 }
